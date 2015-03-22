@@ -1258,6 +1258,10 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
                 selfBlock.activityViewController = nil;
             }];
             
+            if (([[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] != NSOrderedAscending)) {
+                self.activityViewController.popoverPresentationController.barButtonItem = _actionButton;
+            }
+            
             [self presentViewController:self.activityViewController animated:YES completion:nil];
         }
         else
